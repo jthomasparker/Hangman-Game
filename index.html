@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="assets/javascript/game.js"></script>
+    <title>Hangman</title>
+</head>
+<body>
+    <div class = "container-fluid">
+        <div class = "row">
+            <div class="col-md-12">
+                <h1>Hangman</h1>
+            </div>
+        </div>
+
+        <div class = "row">
+            <div class="col-xs-12 col-md-8">
+                    <div class="panel panel-primary">
+                            <div class="panel-heading"><h2>Guess the Word</h2>
+                            </div>
+                            <div class="panel-body">
+                <div id="wordHolder"></div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                    <div class="panel panel-primary">
+                            <div class="panel-heading"><h2>Hint</h2>
+                            </div>
+                            <div class="panel-body">
+                                <div class="container-fluid">
+                <div id="hint">
+                                       
+                        <img id="hintimg">
+                        
+
+                    </div>
+
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class = "row">
+            <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-primary">
+                            <div class="panel-heading"><h2>Scoreboard:</h2>
+                            </div>
+                            <div class="panel-body">
+                <div id="scoreboard"></div>
+                </div>
+                </div>
+                
+            </div>
+            <div class = "col-xs-12 col-md-6">
+                    <div class="panel panel-primary">
+                            <div class="panel-heading"><h2>Incorrect Letters:</h2>
+                            </div>
+                            <div class="panel-body">
+                <div id="incorrectLetters"></div>
+                </div>
+                </div>
+            
+                
+            </div>
+        </div>
+        </div>
+        
+</body>
+</html>
