@@ -43,7 +43,7 @@ var game = {
     
     
 newGame: function(){
-    
+    // reset values
     wordHolder.innerHTML = ""
     this.answers = [];
     this.incorrect = [];
@@ -53,10 +53,12 @@ newGame: function(){
     this.incorrectCount = 0;
     this.updateScoreboard();
     incorrectLetters.innerHTML = ""
+    //get random word
    word = wordDict.words[Math.floor(Math.random() * wordDict.words.length)];
    var idx = wordDict.words.indexOf(word);
    word = word.replace(/\s/g, "-").toUpperCase();
    this.imgOpacity = 0;
+   // get corresponding image
    $("#hintimg").attr('src', wordDict.hints[idx])
    $("#hintimg").css("opacity", this.imgOpacity);
     for(var i = 0; i < word.length; i++){
@@ -67,47 +69,43 @@ newGame: function(){
         this.answers[i] = "_";
         }
     }
-    
-    wordHolder.innerHTML = this.answers.join(" ");
-    
-    
-       
+    wordHolder.innerHTML = this.answers.join(" ");     
 },
 
 processGuess: function(userGuess){
+    //ignore letters already guessed
     if(this.allLetters.indexOf(userGuess) === -1){
         this.allLetters.push(userGuess);
+        // correct guess
         if(word.indexOf(userGuess) > -1){
             this.correctCount++
                 for(var i = 0; i < word.length; i++){
                     if(word[i] === userGuess){
                         this.answers[i] = userGuess;
                     }
-                }
-                
+                }    
         } else {
+            //incorrect guess
             this.incorrect.push(userGuess);
             this.lives--
             this.incorrectCount++
             incorrectLetters.append(userGuess + " ");
-            
             this.imgOpacity += .01
             $("#hintimg").css("opacity", this.imgOpacity);
-
         }
     wordHolder.innerHTML = this.answers.join(" ")
-} else {
-    return;
-}
+    } else {
+        return;
+    }
 },
 
 updateScoreboard: function(){
+    //updates scoreboard with stats
     winDiv.text("Overall Record: " + this.wins + "-" + this.losses);
   //  lossesDiv.text("Total Losses: " + this.losses);
     remainingDiv.text("Lives Remaining: " + this.lives);
     correctDiv.text("Correct Guesses: " + this.correctCount);
     incorrectDiv.text("Incorrect Guesses: " + this.incorrectCount);
-
     $("#scoreboard").append(winDiv);
   //  $("#scoreboard").append(lossesDiv);
     $("#scoreboard").append(remainingDiv);
@@ -116,6 +114,7 @@ updateScoreboard: function(){
 },
 
 gameStatus: function(){
+    //determine if player won or loss
     if(this.lives < 1){
         this.losses++
         this.imgOpacity = 1;
@@ -153,9 +152,6 @@ document.onkeyup = function(event) {
     game.gameStatus();
     game.updateScoreboard();
     }
-    
-    
-
 }
 
 
