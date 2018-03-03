@@ -1,10 +1,48 @@
+body {
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
 #hint{
     height: 200px;
     width: 150px;
+    margin: auto;
+    
 }
 
 #hintimg{
     height: 100%;
-    width: 100%;
+    width: auto;
     opacity: 1;
+    
+}
+
+#incorrectLetters, #scoreboard{
+    font-family: 'Roboto Mono', monospace;
+    height: 150px;
+    line-height: 200%;
+    
+}
+
+#wordHolder, #incorrectLetters{
+    text-align: center;
+    font-size: 24pt;
+    line-height: 200%;
+    
+}
+
+#wordHolder{
+    height: 200px;
+}
+
+h2{
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.jumbotron{
+    background: white;
 }
